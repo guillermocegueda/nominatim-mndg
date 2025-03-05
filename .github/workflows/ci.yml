@@ -1,0 +1,41 @@
+name: "Continuous Integration"
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+
+      - uses: browser-actions/setup-chrome@v1
+      - run: chrome --version
+
+      - name: Disable AppArmor User Namespace Restrictions for Chromium developer version
+        run: echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Linting
+        run: yarn lint
+
+      - name: Build
+        run: yarn build
+      
+      - name: Testing
+        run: yarn test
+
+      - name: Testing API_ON_SAME_PORT
+        run: API_ON_SAME_PORT=1 yarn test
+
+      - name: Testing REVERSE_ONLY
+        run: REVERSE_ONLY=1 yarn test

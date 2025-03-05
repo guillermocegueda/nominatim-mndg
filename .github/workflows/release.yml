@@ -1,0 +1,38 @@
+name: "Release packaging"
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Package
+        run: |
+          yarn build
+          export VERSION=${GITREF/*v/}
+          mkdir nominatim-ui-${VERSION}
+          mv dist LICENSE README.md screenshot.png nominatim-ui-${VERSION}/
+          mkdir artifacts
+          tar czf artifacts/nominatim-ui-${VERSION}.tar.gz nominatim-ui-${VERSION}
+          zip -qr artifacts/nominatim-ui-${VERSION}.zip nominatim-ui-${VERSION}
+        shell: bash
+        env:
+          GITREF: ${{ github.ref }}
+
+
+      - uses: softprops/action-gh-release@v1
+        with:
+          files: 'artifacts/*'
