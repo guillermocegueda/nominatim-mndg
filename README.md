@@ -2,8 +2,8 @@
 
 ## Instalación
 
-1. Clonar el repositorio: `git clone https://github.com/guillermocegueda/mndg-nominatim`
-2. Entrar a la carpeta: `cd mndg-nominatim`
+1. Clonar el repositorio: `git clone git@github.com:guillermocegueda/nominatim-mndg.git`
+2. Entrar a la carpeta: `cd nominatim-mndg`
 3. Instalar las dependencias: `yarn install` | `npm install` | `pnpm install`
 
 ## Configuración principal
