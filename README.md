@@ -11,7 +11,7 @@
 1. Editar en el archivo `dist/theme/config.theme.template.js` las variables de conexión y del mapa
 2. Renombrar el archivo `dist/theme/config.theme.template.js` a `dist/theme/config.theme.js`
 
-## Starting the frontend
+## Iniciar el frontend
 
 **Nota: el servidor API de Nominamit ya debería estar corriendo en este punto**
 
