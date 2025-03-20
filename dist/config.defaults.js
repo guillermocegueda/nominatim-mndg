@@ -31,8 +31,8 @@ let Nominatim_Config = {
   // ---- MAP ----
   Reverse_Default_Search_Zoom: 18,
   Map_Default_Lat: 21.0,
-  Map_Default_Lon: 0.0,
-  Map_Default_Zoom: 2,
+  Map_Default_Lon: -100.0,
+  Map_Default_Zoom: 6,
   // https://leafletjs.com/reference.html#map-fitbounds
   // Example: [[0,-180], [90,180]]
   // If set then _Lat, _Lon, _Zoom have no effect
@@ -40,9 +40,9 @@ let Nominatim_Config = {
 
   // For what {x}, {y} etc stand for see
   // https://leafletjs.com/reference-1.9.1.html#tilelayer
-  Map_Tile_URL: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+  Map_Tile_URL: "https://api.maptiler.com/maps/openstreetmap/{z}/{x}/{y}.jpg?key=imrgUwBoM6CTGWoCNeHy",
 
   // Can be text or HTML. To hide set to ''
   Map_Tile_Attribution:
-    '<a href="https://osm.org/copyright">OpenStreetMap contributors</a>',
+    '<a href="https://api.maptiler.com/">MapTiler</a>',
 };

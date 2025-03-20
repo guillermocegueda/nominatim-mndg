@@ -37,6 +37,7 @@
     },
     "dependencies": {
         "bootstrap": "^5.0.0",
+        "dotenv": "^16.4.7",
         "escape-html": "^1.0.3",
         "leaflet": "1.9.4",
         "leaflet-minimap": "^3.6.1",
